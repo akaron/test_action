@@ -35,4 +35,5 @@ jobs:
           kubectl get svc,pods
           # kubectl port-forward $(kubectl get pods -l "app=hello-kubernetes" -o jsonpath="{.items[0].metadata.name}") 8080 &
           # curl localhost:8080
-          kubectl run -it busybox --image=busybox:1.28 --rm --restart=Never -- sh -c 'wget hello-kubernetes ; cat index.html'
+          kubectl run -it busybox --image=busybox:1.28 --rm --restart=Never -- sh -c 'nc -zv hello-kubernetes 80'
+          kubectl run -it busybox --image=busybox:1.28 --rm --restart=Never -- sh -c 'wget hello-kubernetes; cat index.html'
