@@ -28,3 +28,6 @@ jobs:
       - run: |
           kubectl get nodes
           kubectl version
+          kubectl get pods -A
+          sleep 20
+          kubectl get pods -A
