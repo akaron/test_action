@@ -5,7 +5,7 @@ try this [actions-k3s example](https://ithelp.ithome.com.tw/articles/10244256) a
 below are original readme.
 
 
-### Example: Getting started with a simple go app
+## Example: Getting started with a simple go app
 
 This is a simple example based on:
 
