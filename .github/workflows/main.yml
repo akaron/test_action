@@ -28,11 +28,11 @@ jobs:
       - run: |
           kubectl get nodes
           kubectl version
-          sleep 20
+          sleep 30
           echo "Create hello.yaml (svc and deployment)"
           kubectl create -f hello.yaml
           sleep 20
-          kubectl get svc,pods
+          kubectl get svc,pods -A
           # kubectl port-forward $(kubectl get pods -l "app=hello-kubernetes" -o jsonpath="{.items[0].metadata.name}") 8080 &
           # curl localhost:8080
           kubectl run -it busybox --image=busybox:1.28 --rm --restart=Never -- sh -c 'nc -zv hello-kubernetes 80'
