@@ -28,3 +28,8 @@ jobs:
       - run: |
           kubectl get nodes
           kubectl version
+          kubectl apply -f hello.yaml
+          sleep 20
+          kubecel get pods -A
+          kubectl port-forward $(kubectl get pod -l "app=hello-kubernetes" -o jsonpath="{.items[0].metadata.name}") 80
+          curl localhost:80
