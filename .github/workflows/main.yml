@@ -30,7 +30,9 @@ jobs:
           kubectl version
           sleep 20
           kubectl create -f hello.yaml
-          sleep 10
+          echo "Deployed pod"
+          sleep 20
           kubectl get pods -A
+          echo "Port forward to localhost:8080"
           kubectl port-forward $(kubectl get pods -l "app=hello-kubernetes" -o jsonpath="{.items[0].metadata.name}") 8080 &
           curl localhost:8080
