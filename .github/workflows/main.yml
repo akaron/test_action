@@ -33,8 +33,8 @@ jobs:
           kubectl create -f hello.yaml
           sleep 20
           kubectl get svc,pods -o wide
-          kubectl port-forward $(kubectl get pods -l "app=hello-kubernetes" -o jsonpath="{.items[0].metadata.name}") 8080 &
-          sleep 5
-          curl localhost:8080
+          # kubectl port-forward $(kubectl get pods -l "app=hello-kubernetes" -o jsonpath="{.items[0].metadata.name}") 8080 &
+          # sleep 5
+          # curl localhost:8080
           # kubectl run -it busybox --image=busybox:1.28 --rm --restart=Never -- sh -c 'nc -zv hello-kubernetes 80'
-          # kubectl run -it busybox --image=busybox:1.28 --rm --restart=Never -- sh -c 'wget hello-kubernetes; cat index.html'
+          kubectl run -it busybox --image=busybox:1.28 --rm --restart=Never -- sh -c 'wget -O - hello-kubernetes > /dev/null; cat index.html'
